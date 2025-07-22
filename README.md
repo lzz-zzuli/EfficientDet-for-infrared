@@ -75,3 +75,12 @@
   ```bash
   python coco_eval_ours2.py --project m3fd --compound_coef 1 --weights logs/ctir/efficientdet-d1_101_60500.pth --adapter_weights logs/m3fd/adapter_d1_100.pth
   ```
+## 5. 适配器多层特征对齐
+ **训练命令**：
+  ```bash
+ python train_adapter3.py --project m3fd --compound_coef 2 --source_data_path /workspace/Yet-Another-EfficientDet-Pytorch-master/datasets/ctir --target_data_path /workspace/Yet-Another-EfficientDet-Pytorch-master/datasets/m3fd --load_weights logs/ctir/efficientdet-d2_150_180000.pth --adapter_epochs 100 --adapter_lr 0.001
+  ```
+**测试命令**：
+  ```bash
+  python coco_eval_ours4.py --project m3fd --compound_coef 2 --weights logs/ctir/efficientdet-d2_150_180000.pth  --adapter_weights logs/m3fd/3adapter_d2_1.pth
+  ```
